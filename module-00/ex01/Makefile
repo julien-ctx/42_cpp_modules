@@ -5,7 +5,7 @@ BLUE = "\033[1;34m"
 WHITE = "\033[1;37m"
 RESET = "\033[0m"
 
-NAME = 
+NAME = phonebook
 
 PROJECT = phonebook
 
@@ -19,10 +19,10 @@ all: $(NAME)
 
 .cpp.o: $(SRCS)
 	@printf $(GREEN)"\r\033[KCreating object files 👉 "$(YELLOW)"<$<> "$(RESET)
-	@c++ $(CFLAGS) $(HEADER) -c $< -o $(<:.cpp=.o)
+	@c++ $(CPPFLAGS) -c $< -o $(<:.cpp=.o)
 
 $(NAME): $(OBJS)
-	@c++ $(CFLAGS) $(HEADER) -o $(NAME) $(SRCS)
+	@c++ $(CPPFLAGS) -o $(NAME) $(SRCS)
 	@printf $(GREEN)"\r\033[K✅ SUCCESS: "$(WHITE)$(NAME)$(GREEN)" has been created\n"$(RESET)
 
 clean:

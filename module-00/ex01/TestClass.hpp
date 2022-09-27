@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   TestClass.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 11:18:18 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/09/27 16:42:56 by jcauchet         ###   ########.fr       */
+/*   Created: 2022/09/27 17:03:07 by jcauchet          #+#    #+#             */
+/*   Updated: 2022/09/27 17:06:38 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <cctype>
+#ifndef TESTCLASS_HPP
 
-using std::cout;
-using std::endl;
-using std::string;
+# define TESTCLASS_HPP
 
-int main(int ac, char **av)
+class TestClass
 {
-	if (ac == 1)
-	{
-		cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << endl;
-		return 0;
-	}
-	for (int i = 1; i < ac; i++)
-	{
-		string str = av[i];
-		for (int j = 0; str[j]; j++)
-			cout << char(toupper(str[j]));
-		cout << " ";
-	}
-	cout << endl;
-}
+public:
+	TestClass(void);
+	~TestClass(void);
+};
+
+#endif
