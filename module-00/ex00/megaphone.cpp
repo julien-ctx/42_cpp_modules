@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 11:18:18 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/09/27 12:29:58 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/09/27 14:02:29 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ using std::string;
 
 int main(int ac, char **av)
 {
+	if (ac == 1)
+	{
+		cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << endl;
+		return 0;
+	}
 	for (int i = 1; i < ac; i++)
 	{
 		string str = av[i];
