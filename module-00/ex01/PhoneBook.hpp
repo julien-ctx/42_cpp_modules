@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 19:06:08 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/09/28 18:19:32 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/09/28 20:39:13 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ public:
 	~PhoneBook();
 	void	init_contacts();
 	void	add_contact(int *i);
+	void	request_one_info(int *i, int type);
 	void	search_contact();
 	void	exit_phonebook();
 private:

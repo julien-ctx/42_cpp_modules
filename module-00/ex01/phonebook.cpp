@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 19:09:31 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/09/28 19:19:55 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/09/28 20:42:02 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,45 @@ void	PhoneBook::init_contacts()
 		contacts[i].init_one_contact();
 }
 
-void	PhoneBook::add_contact(int *i)
+void	PhoneBook::request_one_info(int *i, int type)
 {
 	std::string str;
-	std::cout << "👉 \033[1;37mFirst name\033[0m" << std::endl;
-	getline(std::cin, str);
-	contacts[*i].set_info(str, FIRST_NAME);
-	std::cout << "👉 \033[1;37mLast name\033[0m" << std::endl;
-	getline(std::cin, str);
-	contacts[*i].set_info(str, LAST_NAME);
-	std::cout << "👉 \033[1;37mNickname\033[0m" << std::endl;
-	getline(std::cin, str);
-	contacts[*i].set_info(str, NICKNAME);
-	std::cout << "👉 \033[1;37mDarkest secret\033[0m" << std::endl;
-	getline(std::cin, str);
-	contacts[*i].set_info(str, DARKEST_SECRET);
-	std::cout << "👉 \033[1;37mPhone number\033[0m" << std::endl;
-	getline(std::cin, str);
-	contacts[*i].set_info(str, PHONE_NUMBER);
+	str[0] = 0;
+	while (!str[0])
+	{
+		if (type == FIRST_NAME)
+			std::cout << "👉 \033[1;37mFirst name\033[0m" << std::endl;
+		else if (type == LAST_NAME)
+			std::cout << "👉 \033[1;37mLast name\033[0m" << std::endl;
+		else if (type == NICKNAME)
+			std::cout << "👉 \033[1;37mNickname\033[0m" << std::endl;
+		else if (type == DARKEST_SECRET)
+			std::cout << "👉 \033[1;37mDarkest secret\033[0m" << std::endl;
+		else
+			std::cout << "👉 \033[1;37mPhone number\033[0m" << std::endl;
+		getline(std::cin, str);
+		if (std::cin.eof())
+			exit(0);
+	}
+	if (type == FIRST_NAME)
+		contacts[*i].set_info(str, FIRST_NAME);
+	else if (type == LAST_NAME)
+		contacts[*i].set_info(str, LAST_NAME);
+	else if (type == NICKNAME)
+		contacts[*i].set_info(str, NICKNAME);
+	else if (type == DARKEST_SECRET)
+		contacts[*i].set_info(str, DARKEST_SECRET);
+	else
+		contacts[*i].set_info(str, PHONE_NUMBER);
+}
+
+void	PhoneBook::add_contact(int *i)
+{
+	request_one_info(i, FIRST_NAME);
+	request_one_info(i, LAST_NAME);
+	request_one_info(i, NICKNAME);
+	request_one_info(i, DARKEST_SECRET);
+	request_one_info(i, PHONE_NUMBER);
 	(*i)++;
 }
 
@@ -54,6 +75,8 @@ void	PhoneBook::search_contact()
 	std::cout << std::endl;
 	std::cout << "👉 \033[1;37mIndex:\033[0m" << std::endl;
 	getline(std::cin, str);
+	if (std::cin.eof())
+		exit(0);
 	for (int i = 0; str[i]; i++)
 	{
 		if (!isdigit(str[i]))
