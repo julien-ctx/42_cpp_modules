@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   TestClass.hpp                                      :+:      :+:    :+:   */
+/*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 17:03:07 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/09/27 17:06:38 by jcauchet         ###   ########.fr       */
+/*   Created: 2022/09/27 19:06:08 by jcauchet          #+#    #+#             */
+/*   Updated: 2022/09/28 18:19:32 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TESTCLASS_HPP
+#pragma once
 
-# define TESTCLASS_HPP
+#include "Contact.hpp"
 
-class TestClass
+class PhoneBook
 {
 public:
-	TestClass(void);
-	~TestClass(void);
+	PhoneBook();
+	~PhoneBook();
+	void	init_contacts();
+	void	add_contact(int *i);
+	void	search_contact();
+	void	exit_phonebook();
+private:
+	Contact	contacts[8];
 };
-
-#endif

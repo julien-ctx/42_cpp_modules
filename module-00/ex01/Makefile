@@ -9,7 +9,9 @@ NAME = phonebook
 
 PROJECT = phonebook
 
-SRCS = *.cpp
+SRCS = main.cpp \
+		PhoneBook.cpp \
+		Contact.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
