@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 19:09:31 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/09/28 20:42:02 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/09/28 20:53:36 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,19 @@ void	PhoneBook::request_one_info(int *i, int type)
 		getline(std::cin, str);
 		if (std::cin.eof())
 			exit(0);
+		if (type == PHONE_NUMBER)
+		{
+			for (int i = 0; str[i]; i++)
+			{
+				if (!isdigit(str[i]))
+				{
+					std::cout << "❌ \033[1;31mPlease enter a valid phone number.\033[0m" << std::endl;
+					str[0] = 0;
+					break;
+				}
+		}
+		}
+		
 	}
 	if (type == FIRST_NAME)
 		contacts[*i].set_info(str, FIRST_NAME);

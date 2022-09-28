@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 19:09:43 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/09/28 19:12:20 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/09/28 20:54:43 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,16 @@ void	Contact::print_contact()
 		std::cout << "❌ \033[1;31mError: index doesn't represent any contact.\033[0m" << std::endl;
 		return;
 	}
-	std::cout << std::endl << "👉 \033[1;37mFirst name: "<< std::endl;
+	std::cout << std::endl << "👉 \033[1;37mFirst name: ";
 	std::cout << first_name << std::endl;
-	std::cout << "👉 " << "Last name: " << std::endl;
+	std::cout << "👉 " << "Last name: ";
 	std::cout << last_name << std::endl;
-	std::cout << "👉 "<< "Nickname: " << std::endl;
+	std::cout << "👉 "<< "Nickname: ";
 	std::cout << nickname << std::endl;
-	std::cout << "👉 " << "Darkest secret: " << std::endl;
+	std::cout << "👉 " << "Darkest secret: ";
 	std::cout << darkest_secret << std::endl;
-	std::cout << "Phone number: " << std::endl;
-	std::cout << "👉 " << phone_number << "\033[0m" << std::endl << std::endl;
+	std::cout << "👉 " << "Phone number: ";
+	std::cout <<  phone_number << "\033[0m" << std::endl << std::endl;
 }
 
 void	Contact::print_one_info(std::string str)
