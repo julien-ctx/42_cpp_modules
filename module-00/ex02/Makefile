@@ -14,7 +14,7 @@ SRCS = tests.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
-CPPFLAGS =  -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
