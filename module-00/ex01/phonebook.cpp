@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 19:09:31 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/09/28 20:53:36 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/09/29 09:21:09 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ PhoneBook::~PhoneBook() {}
 void	PhoneBook::init_contacts()
 {
 	for (int i = 0; i < 8; i++)
-		contacts[i].init_one_contact();
+		this->contacts[i].init_one_contact();
 }
 
 void	PhoneBook::request_one_info(int *i, int type)
@@ -55,24 +55,24 @@ void	PhoneBook::request_one_info(int *i, int type)
 		
 	}
 	if (type == FIRST_NAME)
-		contacts[*i].set_info(str, FIRST_NAME);
+		this->contacts[*i].set_info(str, FIRST_NAME);
 	else if (type == LAST_NAME)
-		contacts[*i].set_info(str, LAST_NAME);
+		this->contacts[*i].set_info(str, LAST_NAME);
 	else if (type == NICKNAME)
-		contacts[*i].set_info(str, NICKNAME);
+		this->contacts[*i].set_info(str, NICKNAME);
 	else if (type == DARKEST_SECRET)
-		contacts[*i].set_info(str, DARKEST_SECRET);
+		this->contacts[*i].set_info(str, DARKEST_SECRET);
 	else
-		contacts[*i].set_info(str, PHONE_NUMBER);
+		this->contacts[*i].set_info(str, PHONE_NUMBER);
 }
 
 void	PhoneBook::add_contact(int *i)
 {
-	request_one_info(i, FIRST_NAME);
-	request_one_info(i, LAST_NAME);
-	request_one_info(i, NICKNAME);
-	request_one_info(i, DARKEST_SECRET);
-	request_one_info(i, PHONE_NUMBER);
+	this->request_one_info(i, FIRST_NAME);
+	this->request_one_info(i, LAST_NAME);
+	this->request_one_info(i, NICKNAME);
+	this->request_one_info(i, DARKEST_SECRET);
+	this->request_one_info(i, PHONE_NUMBER);
 	(*i)++;
 }
 
@@ -83,7 +83,7 @@ void	PhoneBook::search_contact()
 	
 	std::cout << std::endl << "\033[1;34m     index|first name| last name|  nickname\033[0m" << std::endl;
 	for (int i = 0; i < 8; i++)
-		if (contacts[i].print_contact_tab(i))
+		if (this->contacts[i].print_contact_tab(i))
 			break;
 	std::cout << std::endl;
 	std::cout << "👉 \033[1;37mIndex:\033[0m" << std::endl;
@@ -104,7 +104,7 @@ void	PhoneBook::search_contact()
 		std::cout << "❌ \033[1;31mError: bad index number.\033[0m" << std::endl;
 		return;
 	}
-	contacts[index].print_contact();
+	this->contacts[index].print_contact();
 }
 
 void	PhoneBook::exit_phonebook()
