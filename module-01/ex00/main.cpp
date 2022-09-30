@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 10:12:51 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/09/30 12:39:04 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/09/30 17:09:37 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ int main()
 	std::cout << "Now we can use announce() function: \033[0m" << std::endl;
 	foo->announce();
 	randomChump("Bar");
+	randomChump("Test Random");
 	delete foo;
 }

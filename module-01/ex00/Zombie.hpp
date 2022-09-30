@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 10:14:18 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/09/30 12:32:06 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/09/30 17:07:28 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,4 @@ private:
 
 Zombie	*newZombie(std::string name);
 void	randomChump(std::string name);
+

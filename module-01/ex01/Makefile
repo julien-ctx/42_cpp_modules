@@ -11,8 +11,7 @@ PROJECT = zombie
 
 SRCS = Zombie.cpp \
 		main.cpp \
-		newZombie.cpp \
-		randomChump.cpp \
+		zombieHorde.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
