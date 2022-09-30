@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 10:12:51 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/09/30 10:38:07 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/09/30 12:39:04 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 int main()
 {
-	Zombie test;
-
-	test.newZombie("salut");
+	Zombie *foo = newZombie("Foo");
+	std::cout << "👉 \033[1;37mFoo has been created. " << std::endl;
+	std::cout << "Now we can use announce() function: \033[0m" << std::endl;
+	foo->announce();
+	randomChump("Bar");
+	delete foo;
 }
