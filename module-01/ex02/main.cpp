@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 17:41:03 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/09/30 17:44:00 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/09/30 22:27:37 by juliencauch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,15 @@
 
 int	main()
 {
-	std::string str = "HI THIS IS BRAIN";
-	std::string	*ptr = str;
+	std::string string = "HI THIS IS BRAIN";
+	std::string	*stringPTR = &string;
+	std::string	&stringREF = string;
 	
+	std::cout << &string << std::endl;
+	std::cout << stringPTR << std::endl;
+	std::cout << &stringREF << std::endl;
+	
+	std::cout << string << std::endl;
+	std::cout << *stringPTR << std::endl;
+	std::cout << stringREF << std::endl;
 }
