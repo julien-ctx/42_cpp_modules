@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 10:38:47 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/02 12:20:40 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/02 13:53:52 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ const std::string	&Weapon::getType() const
 
 void	Weapon::setType(std::string type)
 {
-	this->type = type;	
+	this->type = type;
 }

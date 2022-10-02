@@ -5,15 +5,15 @@ BLUE = "\033[1;34m"
 WHITE = "\033[1;37m"
 RESET = "\033[0m"
 
-NAME = ref
+NAME = ex02
 
-PROJECT = ref
+PROJECT = ex02
 
 SRCS = main.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
-CPPFLAGS = -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
