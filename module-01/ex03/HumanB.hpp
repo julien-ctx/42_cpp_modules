@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 10:47:57 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/02 14:15:12 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/02 15:20:02 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ class HumanB
 {
 public:
 	HumanB(std::string name);
-	void	attack();
+	void	attack() const;
 	void	setWeapon(Weapon &w);
 private:
 	Weapon		*weapon;
