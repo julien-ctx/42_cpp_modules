@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
+/*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 15:20:28 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/03 16:39:04 by juliencauch      ###   ########.fr       */
+/*   Updated: 2022/10/03 17:02:35 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int main(int ac, char **av)
 			line.erase(pos, to_erase.length());
 			sub.erase(pos + i, to_erase.length());
 			sub.insert(pos + i, to_insert);
-			i = i + to_insert.length();
+			i += to_insert.length();
 		}
 		output << sub << "\n";
 	}
