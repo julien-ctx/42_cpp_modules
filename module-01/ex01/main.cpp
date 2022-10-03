@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 10:12:51 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/09/30 17:04:27 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/03 10:31:30 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,3 @@ int main(int ac, char **av)
 		horde[i].announce();
 	delete [] horde;
 }
-
-// system("leaks zombie");
