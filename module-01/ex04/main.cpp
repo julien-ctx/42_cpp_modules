@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 15:20:28 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/02 21:41:02 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/03 12:58:42 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,18 @@ int main(int ac, char **av)
 			break;
 		std::string to_erase = av[2];
 		std::string to_insert = av[3];
-		int pos = line.find(to_erase);
-		if (pos > -1)
+		int pos;
+		while (1)
 		{
+			if (to_erase != to_insert)
+				pos = line.find(to_erase);
+			else
+			{
+				pos = line.find(to_erase);
+				continue;
+			}
+			if (pos < 0)
+				break;
 			line.erase(pos, to_erase.length());
 			line.insert(pos, to_insert);
 		}
