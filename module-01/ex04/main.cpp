@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 15:20:28 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/03 12:58:42 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/03 16:39:04 by juliencauch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,21 +47,18 @@ int main(int ac, char **av)
 			break;
 		std::string to_erase = av[2];
 		std::string to_insert = av[3];
-		int pos;
+		std::string sub = line;
+		int i = 0;
 		while (1)
 		{
-			if (to_erase != to_insert)
-				pos = line.find(to_erase);
-			else
-			{
-				pos = line.find(to_erase);
-				continue;
-			}
+			int pos = int(line.find(to_erase));
 			if (pos < 0)
 				break;
 			line.erase(pos, to_erase.length());
-			line.insert(pos, to_insert);
+			sub.erase(pos + i, to_erase.length());
+			sub.insert(pos + i, to_insert);
+			i = i + to_insert.length();
 		}
-		output << line << "\n";
+		output << sub << "\n";
 	}
 }
