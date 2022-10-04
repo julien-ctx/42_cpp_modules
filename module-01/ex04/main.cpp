@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 15:20:28 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/03 17:02:35 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/04 10:39:01 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 #include <fstream>
 #include <sys/stat.h>
 
-int main(int ac, char **av)
+void	error_handling(int ac, char **av)
 {
 	if (ac != 4)
 	{
 		std::cout << "Error: incorrect syntax." << std::endl;
-		return 1;
+		exit(1);
 	}
 	struct stat path_stat;
     stat(av[1], &path_stat);
@@ -28,8 +28,18 @@ int main(int ac, char **av)
 	if (is_dir)
 	{
 		std::cout << "Error: path is a directory." << std::endl;
-		return 1;
+		exit(1);
 	}
+	if (!av[2][0])
+	{
+		std::cout << "Error: pattern to replace cannot be empty." << std::endl;
+		exit(1);
+	}
+}
+
+int main(int ac, char **av)
+{
+	error_handling(ac, av);
 	std::string	input_name(av[1]);
 	std::ifstream input(input_name);
 	if (!input)
