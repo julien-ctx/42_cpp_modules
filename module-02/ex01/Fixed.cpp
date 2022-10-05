@@ -17,11 +17,16 @@ Fixed::Fixed() : _i(0)
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(int const val) : _i(val) {}
+Fixed::Fixed(int const val)
+{
+	std::cout << "Int constructor called" << std::endl;
+	this->_i = val << this->_d;
+}
 
 Fixed::Fixed(float const val)
 {
-	this->_i = roundf(val * (1 << this->_d));
+	std::cout << "Float constructor called" << std::endl;
+	this->_i = int(roundf(val * (1 << this->_d)));
 }
 
 Fixed::Fixed(Fixed const &src)
@@ -42,20 +47,17 @@ void Fixed::setRawBits(int const raw)
 
 float	Fixed::toFloat() const
 {
-	std::cout << "Float constructor called" << std::endl;
 	return ((float)((float)this->_i / (float)(1 << this->_d)));
 }
 
-
 int	Fixed::toInt() const
 {
-	std::cout << "Int constructor called" << std::endl;
-	return this->_i;
+	return (this->_i / (1 << this->_d));
 }
 
 std::ostream &operator<<(std::ostream &o, Fixed const &obj)
 {
-	o << obj.getRawBits();
+	o << obj.toFloat();
 	return o;
 }
 
