@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 10:53:47 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/05 19:06:30 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/06 00:07:56 by juliencauch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -22,12 +24,26 @@ public:
 	Fixed(float const val);
 	Fixed(Fixed const &src); // Copy constructor
 	Fixed &operator=(Fixed const &rhs); // Affectation operator
-	Fixed &operator+(Fixed const &rhs); // Affectation operator
-	Fixed &operator-(Fixed const &rhs); // Affectation operator
-	Fixed &operator*(Fixed const &rhs); // Affectation operator
-	Fixed &operator/(Fixed const &rhs); // Affectation operator
-	Fixed &operator++(Fixed const &rhs); // Affectation operator
-	Fixed &operator--(Fixed const &rhs); // Affectation operator
+	Fixed &operator+(Fixed const &rhs);
+	Fixed &operator-(Fixed const &rhs);
+	Fixed &operator*(Fixed const &rhs);
+	Fixed &operator/(Fixed const &rhs);
+	Fixed &operator++();
+	Fixed operator++(int val);
+	Fixed &operator--();
+	Fixed operator--(int val);
+
+	bool operator<(Fixed const &obj);
+	bool operator>(Fixed const &obj);
+	bool operator>=(Fixed const &obj);
+	bool operator<=(Fixed const &obj);
+	bool operator==(Fixed const &obj);
+	bool operator!=(Fixed const &obj);
+
+	static Fixed const &min(Fixed const &o1, Fixed const &o2);
+	static Fixed &min(Fixed &o1, Fixed &o2);
+	static Fixed const &max(Fixed const &o1, Fixed const &o2);
+	static Fixed &max(Fixed &o1, Fixed &o2);
 	~Fixed(); // Normal destructor
 	
 	int		getRawBits() const;
