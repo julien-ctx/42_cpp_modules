@@ -6,33 +6,26 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 11:13:53 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/05 14:02:58 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/05 14:06:35 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int main(void)
+int main(void) 
 {
-	{
-		std::cout << "---------42 Main----------" << std::endl;
-		Fixed a;
-		Fixed b(a);
-		Fixed c;
-		c = b;
-		std::cout << a.getRawBits() << std::endl;
-		std::cout << b.getRawBits() << std::endl;
-		std::cout << c.getRawBits() << std::endl;
-	}
-	// {
-	// 	std::cout << std::endl << "---------My Main----------" << std::endl;
-	// 	Fixed a;
-	// 	a.setRawBits(42);
-	// 	std::cout << a.getRawBits() << std::endl;
-	// 	Fixed b(a);
-	// 	std::cout << b.getRawBits() << std::endl;
-	// 	Fixed c;
-	// 	c = b;
-	// 	std::cout << c.getRawBits() << std::endl;
-	// }
+	Fixed a;
+	Fixed const b(10);
+	Fixed const c(42.42f);
+	Fixed const d(b);
+	a = Fixed(1234.4321f);
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl;
+	std::cout << "c is " << c << std::endl;
+	std::cout << "d is " << d << std::endl;
+	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	return 0;
 }
