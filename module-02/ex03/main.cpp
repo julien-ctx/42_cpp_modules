@@ -31,7 +31,7 @@ int main()
 		Point A(0, 0);
 		Point B(10, 30);
 		Point C(20, 0);
-		Point P(10, 0);
+		Point P(10, 15);
 
 		if (bsp(A, B, C, P))
 			std::cout << "Inside\n";
