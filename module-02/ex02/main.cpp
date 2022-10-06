@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
+/*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 11:13:53 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/06 00:10:05 by juliencauch      ###   ########.fr       */
+/*   Updated: 2022/10/06 10:30:46y jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

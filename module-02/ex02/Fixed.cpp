@@ -36,6 +36,8 @@ Fixed::Fixed(Fixed const &src)
 	*this = src;
 }
 
+// Bits
+
 int	Fixed::getRawBits() const
 {
 	return this->_i;
@@ -45,6 +47,8 @@ void Fixed::setRawBits(int const raw)
 {
 	this->_i = (raw <= 2147483647 && raw >= -2147483648) ? raw : 0;
 }
+
+// Transform
 
 float	Fixed::toFloat() const
 {
@@ -61,6 +65,8 @@ std::ostream &operator<<(std::ostream &o, Fixed const &obj)
 	o << obj.toFloat();
 	return o;
 }
+
+// Operations
 
 Fixed &Fixed::operator=(Fixed const &rhs)
 {
@@ -139,9 +145,38 @@ Fixed Fixed::operator++(int)
 	return copy;	
 }
 
-Fixed::~Fixed ()
+// Compare
+
+Fixed const &Fixed::min(Fixed const &o1, Fixed const &o2)
 {
-	// std::cout << "Destructor called" << std::endl;
+	if (Fixed(o1) <= Fixed(o2))
+		return o1;
+	else
+		return o2;
+}
+
+Fixed &Fixed::min(Fixed &o1, Fixed &o2)
+{
+	if (o1 <= o2)
+		return o1;
+	else
+		return o2;
+}
+
+Fixed const &Fixed::max(Fixed const &o1, Fixed const &o2)
+{
+	if (Fixed(o1) >= Fixed(o2))
+		return o1;
+	else
+		return o2;
+}
+
+Fixed &Fixed::max(Fixed &o1, Fixed &o2)
+{
+	if (o1 >= o2)
+		return o1;
+	else
+		return o2;
 }
 
 bool Fixed::operator<(Fixed const &obj)
@@ -174,35 +209,7 @@ bool Fixed::operator!=(Fixed const &obj)
 	return this->_i != obj._i;
 }
 
-Fixed const &Fixed::min(Fixed const &o1, Fixed const &o2)
+Fixed::~Fixed ()
 {
-	if (Fixed(o1) <= Fixed(o2._i))
-		return o1;
-	else
-		return o2;
+	// std::cout << "Destructor called" << std::endl;
 }
-
-Fixed &Fixed::min(Fixed &o1, Fixed &o2)
-{
-	if (o1 <= o2)
-		return o1;
-	else
-		return o2;
-}
-
-Fixed const &Fixed::max(Fixed const &o1, Fixed const &o2)
-{
-	if (Fixed(o1) >= Fixed(o2._i))
-		return o1;
-	else
-		return o2;
-}
-
-Fixed &Fixed::max(Fixed &o1, Fixed &o2)
-{
-	if (o1 >= o2)
-		return o1;
-	else
-		return o2;
-}
-
