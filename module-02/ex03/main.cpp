@@ -16,13 +16,26 @@ bool bsp(Point const a, Point const b, Point const c, Point const point);
 
 int main()
 {
-	Point A(0, 0);
-	Point B(10, 30);
-	Point C(20, 0);
-	Point P(30, 15);
+	{
+		Point A(0, 0);
+		Point B(10, 30);
+		Point C(20, 0);
+		Point P(10, 15);
 
-	if (bsp(A, B, C, P))
-		std::cout << "Inside\n";
-	else
-		std::cout << "Outside\n";
+		if (bsp(A, B, C, P))
+			std::cout << "Inside\n";
+		else
+			std::cout << "Outside\n";
+	}
+	{
+		Point A(0, 0);
+		Point B(10, 30);
+		Point C(20, 0);
+		Point P(30, 15);
+
+		if (bsp(A, B, C, P))
+			std::cout << "Inside\n";
+		else
+			std::cout << "Outside\n";	
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 12:05:04 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/06 16:59:39 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/06 19:01:51 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ public:
 	Point();
 	Point (Point const &src);
 	Point (float const i, float const j);
-	Point &operator=(Point const &rhs); // Affectation operator
+	Point &operator=(Point const &rhs);
 	~Point();
 
 	float	getX() const;

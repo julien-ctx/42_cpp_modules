@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 14:05:05 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/06 18:10:32 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/06 19:22:45 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ float area(Point const a, Point const b, Point const c)
 
 bool bsp(Point const a, Point const b, Point const c, Point const point)
 {
-	float A = area(a, b, c);
-	float A1 = area(point, b, c);
-	float A2 = area(a, point, c);
-	float A3 = area(a, b, point);
-	
-	return (A == A1 + A2 + A3);
+	float ABC = area(a, b, c);
+	float PBC = area(point, b, c);
+	float APC = area(a, point, c);
+	float ABP = area(a, b, point);
+
+	return (ABC == PBC + APC + ABP);
 }
