@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 12:07:33 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/07 12:21:57 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/07 14:48:20 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,15 @@ public:
 
 	void	attack(const std::string &target);
 	void	takeDamage(unsigned int amount);
-	void	beRepaired(unsigned int amout);
+	void	beRepaired(unsigned int amount);
+
+	std::string getName(int damage);
+	std::string getName();
+	int	getDamage();
+	int	getHitPoints();
+	int	getEnergyPoints();
+
+	void	setDamage(int damage);
 private:
 	std::string _name;
 	int	_hitPoints;

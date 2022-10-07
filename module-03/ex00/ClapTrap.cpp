@@ -6,13 +6,13 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 12:12:41 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/07 12:30:27 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/07 15:00:01 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap() : _hitPoints(0), _energyPoints(0), _attackDamage(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
@@ -45,11 +45,58 @@ ClapTrap::~ClapTrap()
 	std::cout << "Default destructor called" << std::endl;
 }
 
+// Accessors
+
+std::string ClapTrap::getName(int damage)
+{
+	this->takeDamage(damage);
+	return this->_name;
+}
+
+std::string ClapTrap::getName()
+{
+	return this->_name;
+}
+
+int ClapTrap::getDamage()
+{
+	return this->_attackDamage;
+}
+
+int ClapTrap::getHitPoints()
+{
+	return this->_hitPoints;
+}
+
+int ClapTrap::getEnergyPoints()
+{
+	return this->_energyPoints;
+}
+
+void	ClapTrap::setDamage(int damage)
+{
+	this->_attackDamage = damage;
+}
+
 void	ClapTrap::attack(const std::string &target)
 {
 	if (this->_energyPoints > 0 && this->_hitPoints > 0)
 	{
+		this->_energyPoints--;
 		std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing ";
 		std::cout << this->_attackDamage << " points of damage!" << std::endl;
 	}
+}
+
+void	ClapTrap::takeDamage(unsigned int amount)
+{
+	std::cout << this->_name << " received " << amount << " points of damage." << std::endl;
+	this->_hitPoints = (this->_hitPoints - amount < 0) ? 0 : this->_hitPoints - amount;
+}
+
+void	ClapTrap::beRepaired(unsigned int amount)
+{
+	std::cout << this->_name << " has been repaired and received " << amount << " hit points." << std::endl;
+	this->_hitPoints += amount;
+	this->_energyPoints--;
 }
