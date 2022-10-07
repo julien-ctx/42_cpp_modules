@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 12:12:41 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/07 15:00:01 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/07 15:38:30 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,21 +82,33 @@ void	ClapTrap::attack(const std::string &target)
 {
 	if (this->_energyPoints > 0 && this->_hitPoints > 0)
 	{
-		this->_energyPoints--;
 		std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing ";
 		std::cout << this->_attackDamage << " points of damage!" << std::endl;
+		this->_energyPoints--;
 	}
+	else
+		std::cout << this->_name << " couldn't attack!" << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << this->_name << " received " << amount << " points of damage." << std::endl;
-	this->_hitPoints = (this->_hitPoints - amount < 0) ? 0 : this->_hitPoints - amount;
+	if (this->_energyPoints > 0 && this->_hitPoints > 0)
+	{
+		std::cout << this->_name << " received " << amount << " points of damage." << std::endl;
+		this->_hitPoints = ((unsigned int)this->_hitPoints < amount) ? 0 : this->_hitPoints - amount;
+	}
+	else
+		std::cout << this->_name << " couldn't take damage!" << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	std::cout << this->_name << " has been repaired and received " << amount << " hit points." << std::endl;
-	this->_hitPoints += amount;
-	this->_energyPoints--;
+	if (this->_energyPoints > 0 && this->_hitPoints > 0)
+	{
+		std::cout << this->_name << " has been repaired and received " << amount << " hit points." << std::endl;
+		this->_hitPoints += amount;
+		this->_energyPoints--;
+	}
+	else
+		std::cout << this->_name << " couldn't be repaired!" << std::endl;
 }

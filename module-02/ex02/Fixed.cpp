@@ -74,7 +74,6 @@ Fixed &Fixed::operator=(Fixed const &rhs)
 	if (this != &rhs)
 		this->_i = rhs.getRawBits();
 	return *this;
-	return *this;
 }
 
 Fixed &Fixed::operator+(Fixed const &rhs)
