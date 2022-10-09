@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 12:19:21 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/09 13:12:01 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/09 15:13:44 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,16 @@
 int main()
 {
 	DiamondTrap Tac("Tac");
-	std::cout << Tac.getName() << "," << Tac.getEnergyPoints() << "," << Tac.getHitPoints() << "\n";
+	std::cout << "Hit points: " << Tac.getHitPoints() << std::endl;
+	std::cout << "Energy points: " << Tac.getEnergyPoints() << std::endl;
+	std::cout << "Attack damage: " << Tac.getDamage() << std::endl;
+	Tac.attack("Yoshi");
+	std::cout << std::endl;
+	
+	Tac.guardGate();
+	Tac.highFivesGuys();
+
+	std::cout << std::endl;
+	
+	Tac.whoAmI();
 }

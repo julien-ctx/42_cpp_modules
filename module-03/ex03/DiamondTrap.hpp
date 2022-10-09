@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:38:09 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/09 12:45:56 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/09 15:13:36 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ public:
 	~DiamondTrap();
 
 	void	whoAmI();
+	void	attack(std::string str);
 private:
 	std::string _name;
 };
