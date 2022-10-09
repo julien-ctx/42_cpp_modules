@@ -6,9 +6,11 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 12:07:33 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/07 14:48:20 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/09 08:47:54 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #include <iostream>
 #include <string>
