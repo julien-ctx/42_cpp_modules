@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 12:19:21 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/09 10:00:09 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/09 17:05:08 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main()
 	ScavTrap Tac("Tac");
 	ScavTrap Yoshi("Yoshi");
 	
-	std::cout << Yoshi.getName() << " has now " << Yoshi.getHitPoints() << " hit points." << std::endl;
+	std::cout << Yoshi.getName() << " has initially " << Yoshi.getHitPoints() << " hit points." << std::endl;
 	
 	Tac.attack(Yoshi.getName(Tac.getDamage()));
 	std::cout << Yoshi.getName() << " has now " << Yoshi.getHitPoints() << " hit points." << std::endl;

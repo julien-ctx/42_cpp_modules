@@ -6,14 +6,17 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:21:01 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/09 14:53:47 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/09 17:55:31 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap()
+FragTrap::FragTrap() : ClapTrap()
 {
+	this->_hitPoints = 100;
+	this->_energyPoints = 100;
+	this->_attackDamage = 30;
 	std::cout << "FragTrap: Default constructor called" << std::endl;
 }
 
