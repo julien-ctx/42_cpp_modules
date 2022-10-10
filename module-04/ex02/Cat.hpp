@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
+/*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 10:08:38 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/10 19:54:28 by juliencauch      ###   ########.fr       */
+/*   Updated: 2022/10/10 16:02:45 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

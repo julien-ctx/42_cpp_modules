@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
+/*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 10:08:38 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/10 19:54:28 by juliencauch      ###   ########.fr       */
+/*   Created: 2022/10/10 12:44:18 by jcauchet          #+#    #+#             */
+/*   Updated: 2022/10/10 12:46:30 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include <iostream>
+#include <string>
 
-class Cat: public Animal
+class Brain
 {
 public:
-	Cat();
-	Cat(Cat const &src);
-	Cat &operator=(Cat const &rhs);
-	~Cat();
-
-	std::string	getType() const;
-	void	makeSound() const;
+	Brain();
+	Brain(Brain const &src);
+	Brain &operator=(Brain const &rhs);
+	~Brain();
 private:
-	Brain *_brain;
+	std::string ideas[100];
 };

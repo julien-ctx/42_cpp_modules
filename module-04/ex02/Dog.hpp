@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
+/*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 10:08:38 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/10 19:54:28 by juliencauch      ###   ########.fr       */
+/*   Created: 2022/10/10 09:57:44 by jcauchet          #+#    #+#             */
+/*   Updated: 2022/10/10 12:55:12 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Cat: public Animal
+class Dog: public Animal
 {
 public:
-	Cat();
-	Cat(Cat const &src);
-	Cat &operator=(Cat const &rhs);
-	~Cat();
+	Dog();
+	Dog(Dog const &src);
+	Dog &operator=(Dog const &rhs);
+	~Dog();
 
 	std::string	getType() const;
 	void	makeSound() const;

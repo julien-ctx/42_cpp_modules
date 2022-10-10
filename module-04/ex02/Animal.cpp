@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 12:44:53 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/10 19:47:31 by juliencauch      ###   ########.fr       */
+/*   Created: 2022/10/10 09:47:46 by jcauchet          #+#    #+#             */
+/*   Updated: 2022/10/10 20:06:15 by juliencauch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#include "Animal.hpp"
 
-Brain::Brain()
+Animal::Animal()
 {
-	for (int i = 0; i < 100; i++)
-		this->ideas[i] = "Idea " + std::to_string(i);
-	std::cout << "Brain: constructor called" << std::endl;
+	this->type = "Animal";
+	std::cout << "Animal: constructor called" << std::endl;
 }
 
-Brain::Brain(Brain const &src)
+Animal::Animal(Animal const &src)
 {
-	std::cout << "Brain: copy constructor called" << std::endl;
+	std::cout << "Animal: copy constructor called" << std::endl;
 	*this = src;
 }
 
-Brain &Brain::operator=(Brain const &rhs)
+Animal &Animal::operator=(Animal const &rhs)
 {
 	if (this != &rhs)
-		for (int i = 0; i < 100; i++)
-			this->ideas[i] = rhs.ideas[i];
+		this->type = rhs.type;
 	return *this;
 }
 
-Brain::~Brain()
+Animal::~Animal()
 {
-	std::cout << "Brain: destructor called" << std::endl;
+	std::cout << "Animal: destructor called" << std::endl;
+}
+
+std::string	Animal::getType() const
+{
+	return this->type;
 }
