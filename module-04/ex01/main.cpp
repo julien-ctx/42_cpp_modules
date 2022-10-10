@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 09:44:16 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/10 12:42:47 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/10 16:06:38 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,34 @@
 
 int main()
 {
+	Animal *animals[10];
+
+	for (int i = 0; i < 5; i++)
 	{
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
-	delete meta;
-	delete j;
-	delete i;
+		std::cout << "---------------------" << std::endl;	
+		animals[i] = new Dog();
 	}
+	for (int i = 5; i < 10; i++)
 	{
-	std::cout << std::endl << "----MY TESTS----" << std::endl << std::endl;
-	const WrongAnimal* cat = new WrongCat();
-	std::cout << cat->getType() << " " << std::endl;
-	cat->makeSound(); 
-	delete cat;
+		std::cout << "---------------------" << std::endl;	
+		animals[i] = new Cat();
 	}
+
+	std::cout << std::endl;
+	
+	for (int i = 0; i < 10; i++)
+		std::cout << animals[i]->getType() << std::endl;
+	
+	std::cout << std::endl;
+	
+	for (int i = 0; i < 10; i++)
+	{
+		std::cout << "---------------------" << std::endl;	
+		delete animals[i];
+	}
+	return 0;
 }
+	// const Animal* j = new Dog();
+	// const Animal* i = new Cat();
+	// delete j;
+	// delete i;
