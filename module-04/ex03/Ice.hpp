@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:51:21 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/11 13:43:28 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/11 18:54:43 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 class Ice : public AMateria
 {
+public:
 	Ice();
 	Ice(Ice const &src);
 	Ice &operator=(Ice const &rhs);

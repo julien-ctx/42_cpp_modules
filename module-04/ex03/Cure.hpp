@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 18:19:26 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/11 13:43:23 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/11 18:54:48 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 class Cure : public AMateria
 {
+public:
 	Cure();
 	Cure(Cure const &src);
 	Cure &operator=(Cure const &rhs);

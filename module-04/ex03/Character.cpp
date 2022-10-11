@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 11:23:39 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/11 14:40:16 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/11 18:19:23 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,14 @@
 
 Character::Character()
 {
-	this->_inventory[0] = NULL;
+	for (int i = 0; i < 4; i++)
+		this->_inventory[i] = NULL;
+}
+
+Character::Character(std::string name) : _name(name)
+{
+	for (int i = 0; i < 4; i++)
+		this->_inventory[i] = NULL;
 }
 
 Character::Character(Character const &src)
@@ -24,6 +31,8 @@ Character::Character(Character const &src)
 
 Character	&Character::operator=(Character const &rhs)
 {
+	for (int i = 0; i < 4; i++)
+		this->_inventory[i] = (!rhs._inventory[i]) ? NULL : rhs._inventory[i];
 	return *this;
 }
 
@@ -36,8 +45,6 @@ void	Character::equip(AMateria *m)
 		if (!this->_inventory[i])
 		{
 			this->_inventory[i] = m;
-			if (i++ < 3)
-				this->_inventory[i] = NULL;
 			break;
 		}
 	}
@@ -45,29 +52,18 @@ void	Character::equip(AMateria *m)
 
 void	Character::unequip(int idx)
 {
-	AMateria *new_inv[4];
-	
-	int i = 0;
-	for (i = 0; this->_inventory[i]; i++)
-		new_inv[i] = this->_inventory[i];
-	new_inv[i] = NULL;
-	if (idx <= 3 && idx >= 0)
-	{
-		for (int i = 0; this->_inventory[i]; i++)
-		{
-			if (i == idx)
-				continue;
-			else
-				this->_inventory[i] = new_inv[i];
-		}
-		this->_inventory[i] = NULL;
-	}
+	if (idx >= 0 && idx <= 3)
+		this->_inventory[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter& target)
 {
 	if (idx <= 3 && idx >= 0)
-		for (int i = 0; this->_inventory[i]; i++)
-			if (idx = i)
-				this->_inventory[i]->use(target);
+		if (this->_inventory[idx])
+			this->_inventory[idx]->use(target);
+}
+
+std::string const &Character::getName() const
+{
+	return this->_name;
 }
