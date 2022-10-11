@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 18:19:11 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/11 10:20:20 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/11 12:05:44 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ AMateria *Ice::clone() const
 	return dup;
 }
 
-void Cure::use(ICharacter &target)
+void Ice::use(ICharacter &target)
 {
 	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

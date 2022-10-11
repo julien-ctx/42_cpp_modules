@@ -6,15 +6,14 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:51:21 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/11 10:19:07 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/11 12:04:43 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
-#include <string>
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 
 class Ice : public AMateria
 {

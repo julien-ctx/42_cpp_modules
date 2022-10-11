@@ -6,27 +6,26 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:59:56 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/11 10:28:50 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/11 12:03:40 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
-#include <string>
 #include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {
 public:
-	ICharacter(std::)
 	ICharacter();
 	ICharacter(ICharacter const &src);
 	ICharacter &operator=(ICharacter const &rhs);
 
 	virtual ~ICharacter();
 	virtual std::string const & getName() const = 0;
-	virtual void equip(AMateria* m) = 0;
+	virtual void equip(AMateria *m) = 0;
 	virtual void unequip(int idx) = 0;
 	virtual void use(int idx, ICharacter& target) = 0;
 };

@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 18:06:44 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/11 10:03:07 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/11 12:15:05 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 #include <iostream>
 #include <string>
+
 #include "ICharacter.hpp"
+
+class ICharacter;
 
 class AMateria
 {
