@@ -12,7 +12,9 @@ PROJECT = Materia
 SRCS = main.cpp \
 		AMateria.cpp \
 		Ice.cpp \
-		Ice.hpp \
+		Cure.cpp \
+		ICharacter.cpp \
+		IMateriaSource.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 

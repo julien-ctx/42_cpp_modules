@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 09:45:21 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/11 10:11:21 by jcauchet         ###   ########.fr       */
+/*   Created: 2022/10/11 09:51:21 by jcauchet          #+#    #+#             */
+/*   Updated: 2022/10/11 10:19:07 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 
 #include <iostream>
 #include <string>
+#include "AMateria.hpp"
 
-class Animal
+class Ice : public AMateria
 {
-public:
-	Animal();
-	Animal(Animal const &src);
-	Animal &operator=(Animal const &rhs);
-	virtual ~Animal();
+	Ice();
+	~Ice();
+	Ice(Ice const &src);
+	Ice &operator=(Ice const &rhs);
 	
-	std::string	getType() const;
-	virtual void	makeSound() const = 0;
-protected:
-	std::string type;
+	AMateria *clone() const;
+	void use(ICharacter &target);
 };

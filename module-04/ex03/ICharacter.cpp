@@ -1,44 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*   ICharacter.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 09:33:04 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/11 10:20:02 by jcauchet         ###   ########.fr       */
+/*   Created: 2022/10/11 10:03:52 by jcauchet          #+#    #+#             */
+/*   Updated: 2022/10/11 10:15:15 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
-#include "AMateria.hpp"
+#include "ICharacter.hpp"
 
-Cure::Cure() : AMateria("cure") {}
+ICharacter::ICharacter() {}
 
-Cure::Cure(Cure const &src)
+ICharacter::ICharacter(ICharacter const &src)
 {
 	*this = src;
 }
 
-Cure	&Cure::operator=(Cure const &rhs)
+ICharacter	&ICharacter::operator=(ICharacter const &rhs)
 {
-	if (this != &rhs)
-	{
-		this->type = rhs.type;
-	}
 	return *this;
 }
 
-Cure::~Cure() {}
-
-AMateria *Cure::clone() const
-{
-	Cure *dup = new Cure();
-	
-	return dup;
-}
-
-void Cure::use(ICharacter &target)
-{
-	std::cout << "* heals " << target.getName() << "'s wonds *" << std::endl;
-}
+ICharacter::~ICharacter() {}

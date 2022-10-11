@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 10:08:38 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/10 16:02:45 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/11 10:11:42 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ public:
 	Cat();
 	Cat(Cat const &src);
 	Cat &operator=(Cat const &rhs);
-	~Cat();
+	virtual ~Cat();
 
 	std::string	getType() const;
 	void	makeSound() const;

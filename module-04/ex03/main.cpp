@@ -6,25 +6,31 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 09:44:16 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/10 17:56:20 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/11 10:25:12 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
-#include "WrongAnimal.hpp"
+#include "AMateria.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
+#include "ICharacter.hpp"
 
 int main()
 {
-	{
-		Cat cat;
-
-		std::cout << "Animal class is instantiated only by subclass" << std::endl;
-		return 0;
-	}
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	ICharacter* me = new Character("me");
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	ICharacter* bob = new Character("bob");
+	me->use(0, *bob);
+	me->use(1, *bob);
+	delete bob;
+	delete me;
+	delete src;
+	return 0;
 }
-
-// Add this to test if the exercise if correctly done
-// Animal wolf;

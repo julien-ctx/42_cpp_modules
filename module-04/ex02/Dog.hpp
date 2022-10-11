@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 09:57:44 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/10 12:55:12 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/11 10:11:47 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ public:
 	Dog();
 	Dog(Dog const &src);
 	Dog &operator=(Dog const &rhs);
-	~Dog();
+	virtual ~Dog();
 
 	std::string	getType() const;
 	void	makeSound() const;
