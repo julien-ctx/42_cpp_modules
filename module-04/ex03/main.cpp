@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 09:44:16 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/11 22:22:03 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/11 22:47:44 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,5 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
-	system("leaks Materia");
 	return 0;
 }
