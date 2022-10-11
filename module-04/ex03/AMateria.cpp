@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:26:57 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/11 09:37:05 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/11 13:42:34 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,5 @@ std::string const &AMateria::getType() const
 {
 	return this->type;
 }
+
+void AMateria::use(ICharacter &target) {}

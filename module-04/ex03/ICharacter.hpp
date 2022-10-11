@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:59:56 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/11 12:03:40 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/11 13:44:23 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ public:
 	ICharacter();
 	ICharacter(ICharacter const &src);
 	ICharacter &operator=(ICharacter const &rhs);
-
 	virtual ~ICharacter();
+
 	virtual std::string const & getName() const = 0;
 	virtual void equip(AMateria *m) = 0;
 	virtual void unequip(int idx) = 0;
