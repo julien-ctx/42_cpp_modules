@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 11:23:39 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/12 11:13:14 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/12 11:26:37 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,12 @@ Character::Character(Character const &src)
 
 Character	&Character::operator=(Character const &rhs)
 {
-	for (int i = 0; i < 4; i++)
-		this->_inventory[i] = (!rhs._inventory[i]) ? NULL : rhs._inventory[i];
 	if (this != &rhs)
+	{
+		for (int i = 0; i < 4; i++)
+			this->_inventory[i] = (!rhs._inventory[i]) ? NULL : rhs._inventory[i];
 		this->_name = rhs._name;
+	}
 	return *this;
 }
 

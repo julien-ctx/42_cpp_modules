@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:26:57 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/11 18:59:14 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/12 11:26:09 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ AMateria::AMateria(AMateria const &src)
 AMateria	&AMateria::operator=(AMateria const &rhs)
 {
 	if (this != &rhs)
-	{
 		this->type = rhs.type;
-	}
 	return *this;
 }
 

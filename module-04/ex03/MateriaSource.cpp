@@ -6,11 +6,13 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 11:27:11 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/12 10:44:38 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/12 11:28:17 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
 
 MateriaSource::MateriaSource()
 {
@@ -20,13 +22,21 @@ MateriaSource::MateriaSource()
 
 MateriaSource::MateriaSource(MateriaSource const &src)
 {
-	*this = src;
+	for (int i = 0; i < 4; i++)
+	{
+		if (src._inventory[i]->getType() == "ice")
+			this->_inventory[i] = new Ice();
+		else if (src._inventory[i]->getType() == "cure")
+			this->_inventory[i] = new Cure();
+		*this->_inventory[i] = *src._inventory[i];
+	}
 }
 
 MateriaSource	&MateriaSource::operator=(MateriaSource const &rhs)
 {
-	for (int i = 0; i < 4; i++)
-		this->_inventory[i] = (!rhs._inventory[i]) ? NULL : rhs._inventory[i];
+	if (this != &rhs)
+		for (int i = 0; i < 4; i++)
+			this->_inventory[i] = (!rhs._inventory[i]) ? NULL : rhs._inventory[i];
 	return *this;
 }
 

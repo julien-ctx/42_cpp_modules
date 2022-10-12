@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 18:19:11 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/12 10:29:57 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/12 11:25:21 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ Ice::Ice(Ice const &src)
 Ice	&Ice::operator=(Ice const &rhs)
 {
 	if (this != &rhs)
-	{
 		this->type = rhs.type;
-	}
 	return *this;
 }
 

@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:33:04 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/11 10:20:02 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/12 11:26:48 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ Cure::Cure(Cure const &src)
 Cure	&Cure::operator=(Cure const &rhs)
 {
 	if (this != &rhs)
-	{
 		this->type = rhs.type;
-	}
 	return *this;
 }
 

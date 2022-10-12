@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:03:52 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/11 11:50:06 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/12 11:27:45 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ ICharacter::ICharacter(ICharacter const &src)
 
 ICharacter	&ICharacter::operator=(ICharacter const &)
 {
-	
 	return *this;
 }
 
