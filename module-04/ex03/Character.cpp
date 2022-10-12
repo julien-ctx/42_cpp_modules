@@ -6,13 +6,14 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 11:23:39 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/12 13:32:35 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/12 14:11:01 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 #include "Cure.hpp"
 #include "Ice.hpp"
+#include "MateriaSource.hpp"
 
 Character::Character()
 {
@@ -34,9 +35,17 @@ Character::Character(Character const &src)
 		if (src._inventory[i])
 		{
 			if (src._inventory[i]->getType() == "ice")
+			{
+				if (this->_inventory[i])		
+					delete this->_inventory[i];
 				this->_inventory[i] = new Ice();
+			}
 			else if (src._inventory[i]->getType() == "cure")
+			{
+				if (this->_inventory[i])		
+					delete this->_inventory[i];
 				this->_inventory[i] = new Cure();
+			}
 		}
 	}
 }
@@ -52,7 +61,17 @@ Character	&Character::operator=(Character const &rhs)
 	return *this;
 }
 
-Character::~Character() {}
+Character::~Character()
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_inventory[i])
+		{
+			this->_inventory[i] = NULL;
+			delete this->_inventory[i];	
+		}
+	}
+}
 
 void	Character::equip(AMateria *m)
 {

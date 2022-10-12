@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 11:27:11 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/12 13:33:12 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/12 14:20:45 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,25 @@ void MateriaSource::learnMateria(AMateria *src)
 
 AMateria *MateriaSource::createMateria(std::string const & type)
 {
+	AMateria *ptr = NULL;
+	
 	if (type == "ice" || type == "cure")
+	{
 		for (int i = 0; i < 4; i++)
+		{
 			if (this->_inventory[i])
+			{
 				if (this->_inventory[i]->getType() == type)
-					return this->_inventory[i];
+				{
+					if (type == "ice")
+						ptr = new Ice();
+					else if (type == "cure")
+						ptr = new Cure();
+					*ptr = *this->_inventory[i];
+					return ptr;	
+				}
+			}
+		}
+	}
 	return 0;
 }
