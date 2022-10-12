@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 18:06:44 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/11 12:15:05 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/12 10:30:39 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 	AMateria();
 	AMateria(AMateria const &src);
 	AMateria &operator=(AMateria const &rhs);
-	~AMateria();
+	virtual ~AMateria();
 
 	AMateria(std::string const &type);
 	std::string const &getType() const;

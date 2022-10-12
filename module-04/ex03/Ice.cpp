@@ -6,12 +6,11 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 18:19:11 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/11 18:49:15 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/12 10:29:57 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
-
 #include "AMateria.hpp"
 
 Ice::Ice() : AMateria("ice") {}

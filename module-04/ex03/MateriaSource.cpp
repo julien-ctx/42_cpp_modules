@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 11:27:11 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/11 21:20:24 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/12 10:44:38 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,12 @@ MateriaSource	&MateriaSource::operator=(MateriaSource const &rhs)
 	return *this;
 }
 
-MateriaSource::~MateriaSource() {}
+MateriaSource::~MateriaSource()
+{
+	for (int i = 0; i < 4; i++)
+		if (this->_inventory[i])
+			delete this->_inventory[i];
+}
 
 
 void MateriaSource::learnMateria(AMateria *src)
@@ -40,20 +45,18 @@ void MateriaSource::learnMateria(AMateria *src)
 		if (!this->_inventory[i])
 		{
 			this->_inventory[i] = src;
-			break;
+			return;
 		}
 	}
+	delete src;
 }
 
 AMateria *MateriaSource::createMateria(std::string const & type)
 {
 	if (type == "ice" || type == "cure")
-	{
 		for (int i = 0; i < 4; i++)
-			if (this->_inventory[i]->getType() == type)
-				return this->_inventory[i];
-		return 0;
-	}
-	else
-		return 0;
+			if (this->_inventory[i])
+				if (this->_inventory[i]->getType() == type)
+					return this->_inventory[i];
+	return 0;
 }

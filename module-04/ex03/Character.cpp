@@ -6,11 +6,13 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 11:23:39 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/11 21:19:09 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/12 11:13:14 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
 
 Character::Character()
 {
@@ -26,13 +28,23 @@ Character::Character(std::string name) : _name(name)
 
 Character::Character(Character const &src)
 {
-	*this = src;
+	this->_name = src._name;
+	for (int i = 0; i < 4; i++)
+	{
+		if (src._inventory[i]->getType() == "ice")
+			this->_inventory[i] = new Ice();
+		else if (src._inventory[i]->getType() == "cure")
+			this->_inventory[i] = new Cure();
+		*this->_inventory[i] = *src._inventory[i];
+	}
 }
 
 Character	&Character::operator=(Character const &rhs)
 {
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = (!rhs._inventory[i]) ? NULL : rhs._inventory[i];
+	if (this != &rhs)
+		this->_name = rhs._name;
 	return *this;
 }
 
@@ -45,7 +57,7 @@ void	Character::equip(AMateria *m)
 		if (!this->_inventory[i])
 		{
 			this->_inventory[i] = m;
-			break;
+			return;
 		}
 	}
 }
