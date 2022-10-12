@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
+/*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 09:44:16 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/10 20:07:16 by juliencauch      ###   ########.fr       */
+/*   Updated: 2022/10/12 13:20:20 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,3 @@ int main()
 	}
 	return 0;
 }
-	// const Animal* j = new Dog();
-	// const Animal* i = new Cat();
-	// delete j;
-	// delete i;

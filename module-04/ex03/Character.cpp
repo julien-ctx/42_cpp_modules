@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 11:23:39 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/12 11:26:37 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/12 13:32:35 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,13 @@ Character::Character(Character const &src)
 	this->_name = src._name;
 	for (int i = 0; i < 4; i++)
 	{
-		if (src._inventory[i]->getType() == "ice")
-			this->_inventory[i] = new Ice();
-		else if (src._inventory[i]->getType() == "cure")
-			this->_inventory[i] = new Cure();
-		*this->_inventory[i] = *src._inventory[i];
+		if (src._inventory[i])
+		{
+			if (src._inventory[i]->getType() == "ice")
+				this->_inventory[i] = new Ice();
+			else if (src._inventory[i]->getType() == "cure")
+				this->_inventory[i] = new Cure();
+		}
 	}
 }
 

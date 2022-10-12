@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 11:27:11 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/12 11:28:17 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/12 13:33:12 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,13 @@ MateriaSource::MateriaSource(MateriaSource const &src)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (src._inventory[i]->getType() == "ice")
-			this->_inventory[i] = new Ice();
-		else if (src._inventory[i]->getType() == "cure")
-			this->_inventory[i] = new Cure();
-		*this->_inventory[i] = *src._inventory[i];
+		if (src._inventory[i])
+		{
+			if (src._inventory[i]->getType() == "ice")
+				this->_inventory[i] = new Ice();
+			else if (src._inventory[i]->getType() == "cure")
+				this->_inventory[i] = new Cure();
+		}
 	}
 }
 
