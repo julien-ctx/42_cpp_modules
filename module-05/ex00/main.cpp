@@ -6,7 +6,7 @@
 /*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 15:30:24 by juliencauch       #+#    #+#             */
-/*   Updated: 2022/10/13 17:43:46 by juliencauch      ###   ########.fr       */
+/*   Updated: 2022/10/13 17:58:56 by juliencauch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main()
 	try
 	{
 		Bureaucrat Yoshi("Yoshi", 1);
-		std::cout << "Yoshi has been successfully created with grade " << Yoshi.getGrade() << std::endl;
+		std::cout << Yoshi;
 		Yoshi.incrementGrade(1);
 	}
 	catch (std::exception &e)
@@ -48,7 +48,7 @@ int main()
 	try
 	{
 		Bureaucrat Palmi("Palmi", 150);
-		std::cout << Palmi.getName() << " has been successfully created with grade 150\n";
+		std::cout << Palmi;
 		Palmi.decrementGrade(1);
 	}
 	catch (std::exception &e)

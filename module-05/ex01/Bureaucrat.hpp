@@ -6,7 +6,7 @@
 /*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 15:21:31 by juliencauch       #+#    #+#             */
-/*   Updated: 2022/10/13 17:35:19 by juliencauch      ###   ########.fr       */
+/*   Updated: 2022/10/13 20:41:05 by juliencauch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 #include <iostream>
 #include <string>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -23,6 +26,8 @@ public:
 	~Bureaucrat();
 	Bureaucrat(Bureaucrat const &src);
 	Bureaucrat &operator=(Bureaucrat const &rhs);
+	
+	void	signForm(Form &obj) const;
 	
 	// Accessors
 	std::string const getName() const;
@@ -38,7 +43,7 @@ public:
 	public:
 		const char *what() const throw()
 		{
-			return "Grade is to HIGH! Value range: [1, 150]";
+			return "Bureaucrat: Grade is to HIGH! Value range: [1, 150]";
 		}
 	};
 	class GradeTooLowException : public std::exception
@@ -46,18 +51,12 @@ public:
 	public:
 		const char *what() const throw()
 		{
-			return "Grade is to LOW! Value range: [1, 150]";
+			return "Bureaucrat: Grade is to LOW! Value range: [1, 150]";
 		}	
 	};	
-	class GradeNotSet : public std::exception
-	{
-	public:
-		const char *what() const throw()
-		{
-			return "Grade has not been set correctly. Please use the appropriate constructor.";
-		}
-	};
 private:
 	std::string const _name;
 	int _grade;
 };
+
+std::ostream &operator<<(std::ostream &o, Bureaucrat const &obj);

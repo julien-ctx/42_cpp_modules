@@ -6,7 +6,7 @@
 /*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:23:48 by juliencauch       #+#    #+#             */
-/*   Updated: 2022/10/13 17:30:28 by juliencauch      ###   ########.fr       */
+/*   Updated: 2022/10/13 20:40:36 by juliencauch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,26 @@
 
 #include <iostream>
 #include <string>
+#include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
 public:
 	Form();
+	Form(std::string name, int signGrade, int execGrade);
 	Form(Form const &src);
 	Form &operator=(Form const &rhs);
 	~Form();
+
+	// Accessors
+	std::string const getName() const;
+	bool	getSign() const;
+	int		getSignGrade() const;
+	int		getExecGrade() const;
+
+	void	beSigned(Bureaucrat const &obj);
 
 	class GradeTooHighException : public std::exception
 	{
@@ -36,7 +48,7 @@ public:
 	public:
 		const char *what() const throw()
 		{
-			return "Grade is to LOW! Value range: [1, 150]";
+			return "Form: Grade is to LOW! Value range: [1, 150]";
 		}	
 	};	
 	class GradeNotSet : public std::exception
@@ -44,7 +56,7 @@ public:
 	public:
 		const char *what() const throw()
 		{
-			return "Grade has not been set correctly. Please use the appropriate constructor.";
+			return "Form: Grade has not been set correctly. Please use the appropriate constructor.";
 		}
 	};
 private:
@@ -52,4 +64,9 @@ private:
 	bool _sign;
 	int	const _signGrade;
 	int	const _execGrade;
+
+	int	checkValue(int n) const;
 };
+
+
+std::ostream &operator<<(std::ostream &o, Form const &obj);

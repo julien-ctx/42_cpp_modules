@@ -6,15 +6,15 @@
 /*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 15:24:06 by juliencauch       #+#    #+#             */
-/*   Updated: 2022/10/13 17:43:10 by juliencauch      ###   ########.fr       */
+/*   Updated: 2022/10/13 20:19:30 by juliencauch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _name("Unknown"), _grade(-42)
+Bureaucrat::Bureaucrat() : _name("Unknown"), _grade(150)
 {
-	std::cout << "Warning: default constructor has been called and grade has been set to -42\n";
+	std::cout << "Bureaucrat: Default constructor has been called and grade has been set to 150\n";
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
@@ -26,7 +26,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 	this->_grade = grade;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &src)
+Bureaucrat::Bureaucrat(Bureaucrat const &src) : _name(src._name)
 {
 	*this = src;
 }
@@ -34,11 +34,14 @@ Bureaucrat::Bureaucrat(Bureaucrat const &src)
 Bureaucrat	&Bureaucrat::operator=(Bureaucrat const &rhs)
 {
 	if (this != &rhs)
-	{
 		this->_grade = rhs._grade;
-		(std::string &)this->_name = rhs._name;
-	}
 	return *this;
+}
+
+std::ostream &operator<<(std::ostream &o, Bureaucrat const &obj)
+{
+	o << obj.getName() << "'s grade value is " << obj.getGrade() << std::endl;
+	return o;
 }
 
 Bureaucrat::~Bureaucrat() {}
@@ -47,8 +50,6 @@ Bureaucrat::~Bureaucrat() {}
 
 void	Bureaucrat::decrementGrade(unsigned int val)
 {
-	if (this->_grade == -42)
-		throw GradeNotSet();
 	if (this->_grade + val > 150)
 		throw GradeTooLowException();
 	this->_grade += val;
@@ -56,8 +57,6 @@ void	Bureaucrat::decrementGrade(unsigned int val)
 
 void	Bureaucrat::incrementGrade(unsigned int val)
 {
-	if (this->_grade == -42)
-		throw GradeNotSet();
 	if (this->_grade - val < 1)
 		throw GradeTooHighException();
 	this->_grade -= val;
