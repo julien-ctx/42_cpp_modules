@@ -12,6 +12,9 @@ PROJECT = Form
 SRCS = main.cpp \
 		Bureaucrat.cpp \
 		Form.cpp \
+		ShrubberyCreationForm.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
