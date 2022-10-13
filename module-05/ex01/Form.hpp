@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 15:21:31 by juliencauch       #+#    #+#             */
-/*   Updated: 2022/10/13 17:35:19 by juliencauch      ###   ########.fr       */
+/*   Created: 2022/10/13 17:23:48 by juliencauch       #+#    #+#             */
+/*   Updated: 2022/10/13 17:30:28 by juliencauch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,14 @@
 #include <iostream>
 #include <string>
 
-class Bureaucrat
+class Form
 {
 public:
-	Bureaucrat();
-	Bureaucrat(std::string name, int grade);
-	~Bureaucrat();
-	Bureaucrat(Bureaucrat const &src);
-	Bureaucrat &operator=(Bureaucrat const &rhs);
-	
-	// Accessors
-	std::string const getName() const;
-	int getGrade() const;
-	
-	// Grade operations
-	void	incrementGrade(unsigned int val);
-	void	decrementGrade(unsigned int val);
-	
-	// Nested classes for exceptions
+	Form();
+	Form(Form const &src);
+	Form &operator=(Form const &rhs);
+	~Form();
+
 	class GradeTooHighException : public std::exception
 	{
 	public:
@@ -59,5 +49,7 @@ public:
 	};
 private:
 	std::string const _name;
-	int _grade;
+	bool _sign;
+	int	const _signGrade;
+	int	const _execGrade;
 };
