@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
+/*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:28:18 by juliencauch       #+#    #+#             */
-/*   Updated: 2022/10/13 22:34:46 by juliencauch      ###   ########.fr       */
+/*   Updated: 2022/10/14 15:27:48 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,3 +74,19 @@ int Form::checkValue(int n) const
 		throw GradeTooLowException();
 	return n;
 }
+
+void	Form::beSigned(Bureaucrat const &obj)
+{
+	if (obj.getGrade() <= this->_signGrade)
+		this->_sign = true;
+	else
+		throw GradeTooLowException();
+}
+void	Form::execute(Bureaucrat const &executor) const
+{
+	if (this->getSign() == false)
+		throw FormNotSigned();
+	else if (executor.getGrade() > this->_execGrade)
+		throw GradeTooLowException();
+}
+

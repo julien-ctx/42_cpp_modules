@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
+/*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:23:48 by juliencauch       #+#    #+#             */
-/*   Updated: 2022/10/13 22:46:50 by juliencauch      ###   ########.fr       */
+/*   Updated: 2022/10/14 15:26:22 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ public:
 	int		getSignGrade() const;
 	int		getExecGrade() const;
 
-	virtual void	beSigned(Bureaucrat const &obj) = 0;
+	void	beSigned(Bureaucrat const &obj);
+	virtual	void	execute(Bureaucrat const &executor) const;
+	virtual void	execAction() const = 0;
 
 	class GradeTooHighException : public std::exception
 	{
@@ -50,14 +52,14 @@ public:
 		{
 			return "Form: Grade is to LOW! Value range: [1, 150]";
 		}	
-	};	
-	class GradeNotSet : public std::exception
+	};
+	class FormNotSigned : public std::exception
 	{
 	public:
 		const char *what() const throw()
 		{
-			return "Form: Grade has not been set correctly. Please use the appropriate constructor.";
-		}
+			return "Form is not signed!";
+		}	
 	};
 private:
 	std::string const _name;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
+/*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 15:21:31 by juliencauch       #+#    #+#             */
-/*   Updated: 2022/10/13 20:41:05 by juliencauch      ###   ########.fr       */
+/*   Updated: 2022/10/14 14:54:49 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ public:
 	Bureaucrat &operator=(Bureaucrat const &rhs);
 	
 	void	signForm(Form &obj) const;
+	void	executeForm(Form const &form);
 	
 	// Accessors
 	std::string const getName() const;

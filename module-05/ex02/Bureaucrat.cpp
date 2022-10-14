@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
+/*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 15:24:06 by juliencauch       #+#    #+#             */
-/*   Updated: 2022/10/13 20:44:01 by juliencauch      ###   ########.fr       */
+/*   Updated: 2022/10/14 15:22:19 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,19 @@ void	Bureaucrat::signForm(Form &obj) const
 	catch (std::exception &e)
 	{
 		std::cout << this->_name << " couldn't sign " << obj.getName() << " because grade value is too low" << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(Form const &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << "Form " << form.getName() << " has been executed by " << this->getName();
+		std::cout << ". Associated file has been sucessfully created\n";
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << "\n";
 	}
 }

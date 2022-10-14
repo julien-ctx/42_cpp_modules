@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
+/*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:23:48 by juliencauch       #+#    #+#             */
-/*   Updated: 2022/10/13 20:40:36 by juliencauch      ###   ########.fr       */
+/*   Updated: 2022/10/14 14:36:08 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,6 @@ public:
 			return "Form: Grade is to LOW! Value range: [1, 150]";
 		}	
 	};	
-	class GradeNotSet : public std::exception
-	{
-	public:
-		const char *what() const throw()
-		{
-			return "Form: Grade has not been set correctly. Please use the appropriate constructor.";
-		}
-	};
 private:
 	std::string const _name;
 	bool _sign;
