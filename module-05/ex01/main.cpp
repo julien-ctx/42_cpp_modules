@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
+/*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 15:30:24 by juliencauch       #+#    #+#             */
-/*   Updated: 2022/10/13 20:48:07 by juliencauch      ###   ########.fr       */
+/*   Updated: 2022/10/14 19:42:16 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,14 @@
 
 int main()
 {
-	// try
-	// {
-	// 	Form Tac("Tac", 151, 25);
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// }
-	// std::cout << std::endl;
-	// try
-	// {
-	// 	Form Yoshi("Yoshi", 150, 0);
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// }
-	// std::cout << std::endl;
-	// try
-	// {
-	// 	Form Palmi("Palmi", 42, 42);
-	// 	std::cout << Palmi;
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// }
-	
+	try
+	{
+		Form TooHigh("TooHigh", 151, 0);
+	}
+	catch(const std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	Form Document("Document", 15, 15);
 	std::cout << Document;
 	Bureaucrat Tac("Tac", 16);

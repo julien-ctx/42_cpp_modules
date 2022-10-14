@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:23:48 by juliencauch       #+#    #+#             */
-/*   Updated: 2022/10/14 14:36:08 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/14 19:39:55 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,5 @@ private:
 
 	int	checkValue(int n) const;
 };
-
 
 std::ostream &operator<<(std::ostream &o, Form const &obj);

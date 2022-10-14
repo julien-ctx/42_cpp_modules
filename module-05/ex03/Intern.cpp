@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 17:02:24 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/14 19:07:17 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/14 19:59:56 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ Form *Intern::makeForm(std::string name, std::string const target)
 	{
 		if (name == types[i])
 		{
+			std::cout << "Intern creates " + types[i] + " form." << std::endl;
 			switch (i)
 			{
 			case 0:
