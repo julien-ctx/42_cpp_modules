@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 15:24:06 by juliencauch       #+#    #+#             */
-/*   Updated: 2022/10/14 16:03:16 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/14 16:05:54 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	Bureaucrat::executeForm(Form const &form)
 	try
 	{
 		form.execute(*this);
-		std::cout << "Form " << form.getName() << " has been executed by " << this->getName();
+		std::cout << "Form " << form.getName() << " has been executed by " << this->getName() << std::endl;
 	}
 	catch (const std::exception &e)
 	{
