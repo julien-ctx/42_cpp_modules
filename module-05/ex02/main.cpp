@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 15:30:24 by juliencauch       #+#    #+#             */
-/*   Updated: 2022/10/14 15:29:39 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/14 15:48:29 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int main()
 {
 	try
 	{
-		ShrubberyCreationForm fourty_two("42", "garden");
-		Bureaucrat tac("Tac", 135);
+		RobotomyRequestForm fourty_two("42", "garden");
+		Bureaucrat tac("Tac", 1);
 		tac.signForm(fourty_two);
 		tac.executeForm(fourty_two);
 	}
