@@ -11,10 +11,9 @@
 /* ************************************************************************** */
 
 #include "Data.hpp"
-
-// Note: reinterpret cast only works with serialize data type > current type
-
 #include "Data.hpp"
+
+// sizeof(uintptr_t) = 8, sizeof(Data *) = 8. Reinterpret cast doesn't work if serialization type is <
 
 uintptr_t serialize(Data *ptr)
 {
@@ -35,7 +34,9 @@ int main()
 
 	std::cout << &test << std::endl;
 	std::cout << test.value << std::endl;
+
 	Data *other = deserialize(serialize(&test));
+	
 	std::cout << other << std::endl;
 	std::cout << other->value << std::endl;
 }
