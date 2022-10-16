@@ -6,13 +6,17 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 10:38:36 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/16 15:01:43 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/16 16:33:51 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
 #include <iomanip>
+#include <limits>
+
+typedef std::numeric_limits<double> double_max;
+typedef std::numeric_limits<float> float_max;
 
 #define ASCII_TYPE 42
 #define FLOAT_TYPE 43
@@ -37,15 +41,29 @@ void	special_cases_handling(std::string str)
 		std::cout << "float: inf" << std::endl;
 }
 
-void	ascii_handling(int value)
+void	ascii_handling(std::string str)
 {
-	if (value < 32 || value > 127)
-		std::cout << "char: Non displayable" << std::endl;
+	if ((str[0] < 48 || str[0] > 57) && !str[1])
+	{
+		if (str[0] < 32 || str[0] > 127)
+			std::cout << "char: Non displayable" << std::endl;
+		else
+			std::cout << "char: '" << str[0] << "'" << std::endl;
+		std::cout << "int: " << static_cast<int>(str[0]) << std::endl;
+		std::cout << std::fixed << std::setprecision(1) << "float: " << static_cast<float>(str[0]) << "f" << std::endl;
+		std::cout << std::fixed << std::setprecision(1) << "double " << static_cast<double>(str[0]) << std::endl;
+	}
 	else
-		std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
-	std::cout << "int: " << value << std::endl;
-	std::cout << std::fixed << std::setprecision(1) << "float: " << static_cast<float>(value) << "f" << std::endl;
-	std::cout << std::fixed << std::setprecision(1) << "double " << static_cast<double>(value) << std::endl;
+	{
+		int value = std::stoi(str);
+		if (value < 32 || value > 127)
+			std::cout << "char: Non displayable" << std::endl;
+		else
+			std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
+		std::cout << "int: " << value << std::endl;
+		std::cout << std::fixed << std::setprecision(1) << "float: " << static_cast<float>(value) << "f" << std::endl;
+		std::cout << std::fixed << std::setprecision(1) << "double " << static_cast<double>(value) << std::endl;
+	}	
 }
 
 void	float_handling(float value, std::string str)
@@ -64,15 +82,20 @@ void	float_handling(float value, std::string str)
 		std::cout << "char: Non displayable" << std::endl;
 		std::cout << "int: impossible" << std::endl;
 	}
-	int i; int j;
+	int i; int j = 0;
 	for (i = 0; str[i]; i++)
 		if (str[i] == '.')
 			break;
 	for (i++; str[i]; i++)
 		j++;
-	if (j > 17) j = 17;
-	std::cout << std::fixed << std::setprecision(j - 1) << "float: " << value << "f" << std::endl;
-	std::cout << std::fixed << std::setprecision(j - 1) << "double " << static_cast<double>(value) << std::endl;
+	if (j > float_max::max_digits10)
+		std::cout << std::fixed << std::setprecision(float_max::max_digits10) << "float: " << value << "f" << std::endl;
+	else
+		std::cout << std::fixed << std::setprecision(j - 1) << "float: " << value << "f" << std::endl;
+	if (j > double_max::max_digits10)
+		std::cout << std::fixed << std::setprecision(double_max::max_digits10) << "double: " << static_cast<double>(value) << std::endl;
+	else
+		std::cout << std::fixed << std::setprecision(j - 1) << "double: " << static_cast<double>(value) << std::endl;
 }
 
 void	double_handling(double value, std::string str)
@@ -91,29 +114,40 @@ void	double_handling(double value, std::string str)
 		std::cout << "char: Non displayable" << std::endl;
 		std::cout << "int: impossible" << std::endl;
 	}
-	int i; int j;
+	int i; int j = 0;
 	for (i = 0; str[i]; i++)
 		if (str[i] == '.')
 			break;
 	for (i++; str[i]; i++)
 		j++;
-	if (j > 17) j = 17;
-	std::cout << std::fixed << std::setprecision(j) << "float: " << static_cast<float>(value) << "f" << std::endl;
-	std::cout << std::fixed << std::setprecision(j) << "double " << value << std::endl;	
+	if (j > float_max::max_digits10)
+		std::cout << std::fixed << std::setprecision(float_max::max_digits10) << "float: " << static_cast<float>(value) << "f" << std::endl;
+	else
+		std::cout << std::fixed << std::setprecision(j) << "float: " << static_cast<float>(value) << "f" << std::endl;
+	if (j > double_max::max_digits10)
+		std::cout << std::fixed << std::setprecision(double_max::max_digits10) << "double: " << value << std::endl;
+	else
+		std::cout << std::fixed << std::setprecision(j) << "double: " << value << std::endl;
 }
 
 int	check_type(std::string str)
 {
-	std::string special_cases[7] = {"+inf", "-inf", "inf", "+inff", "-inff", "inff", "nan"};
+	std::string special_cases[8] = {"+inf", "-inf", "inf", "+inff", "-inff", "inff", "nan", "nanf"};
 
-	for (int i = 0; i < 7; i++)
+	for (int i = 0; i < 8; i++)
 		if (str == special_cases[i])
 			return SPECIAL_CASES;
 	int f = 0; int d = 0; int b = 0; int i = -1;
-	if (str[0] == '+' || str[0] == '-')
+	if (str[0] == '-')
 		i++;
+	if (!i && !str[1])
+		return ASCII_TYPE;
+	if (!i && (str[1] > 57 || str[1] < 48))
+		throw std::exception();
 	while (str[++i])
 	{
+		if (str[i] == '.' && str[i + 1] == 'f')
+		throw std::exception();
 		if (str[i] == '.')
 			d++;
 		else if (str[i] == 'f')
@@ -123,10 +157,14 @@ int	check_type(std::string str)
 	}
 	if (str.length() > 1)
 	{
+		if (str[i - 1] == '.')
+			throw std::exception();
 		if (b || f > 1 || d > 1)
 			throw std::exception();
 		else if (d && f)
 			return FLOAT_TYPE;
+		else if (f)
+			throw std::exception();
 		else if (d)
 			return DOUBLE_TYPE;	
 		std::stoi(str);
@@ -165,7 +203,7 @@ int main(int ac, char **av)
 			double_handling(std::stod(str), str);
 			break;
 		case ASCII_TYPE:
-			ascii_handling(std::stoi(str));
+			ascii_handling(str);
 			break;
 	}
 	return 0;
