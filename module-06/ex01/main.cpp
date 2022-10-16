@@ -14,13 +14,13 @@
 
 uintptr_t serialize(Data *ptr)
 {
-	uintptr_t *ret = reinterpret_cast<uintptr_t *>(ptr);
-	return *ret;
+	uintptr_t ret = reinterpret_cast<uintptr_t>(ptr);
+	return ret;
 }
 
 Data *deserialize(uintptr_t raw)
 {
-	Data *ret = reinterpret_cast<Data *>(&raw);
+	Data *ret = reinterpret_cast<Data *>(raw);
 	return ret;
 }
 
@@ -29,7 +29,7 @@ int main()
 	Data test;
 	test.value = 42;
 
-	std::cout << test.value << std::endl;
+	std::cout << &test << std::endl;
 	Data *other = deserialize(serialize(&test));
-	std::cout << other->value << std::endl;
+	std::cout << other << std::endl;
 }
