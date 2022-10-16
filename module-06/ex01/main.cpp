@@ -12,6 +12,10 @@
 
 #include "Data.hpp"
 
+// Note: reinterpret cast only works with serialize data type > current type
+
+#include "Data.hpp"
+
 uintptr_t serialize(Data *ptr)
 {
 	uintptr_t ret = reinterpret_cast<uintptr_t>(ptr);
@@ -30,6 +34,8 @@ int main()
 	test.value = 42;
 
 	std::cout << &test << std::endl;
+	std::cout << test.value << std::endl;
 	Data *other = deserialize(serialize(&test));
 	std::cout << other << std::endl;
+	std::cout << other->value << std::endl;
 }
