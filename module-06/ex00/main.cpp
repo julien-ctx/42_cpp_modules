@@ -6,36 +6,86 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 10:38:36 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/16 11:47:49 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/16 12:43:54 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 #define ASCII_TYPE 42
 #define FLOAT_TYPE 43
 #define DOUBLE_TYPE 44
 #define SPECIAL_CASES 45
 
-void	char_handling(std::string str, int type)
+void	special_cases_handling(std::string str)
 {
-	
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	if (str == "nan" || str == "nanf")
+		std::cout << "float: nanf" << std::endl;
+	else if (str == "-inf" || str == "-inff")
+		std::cout << "float: -inff" << std::endl;
+	else
+		std::cout << "float: inff" << std::endl;
+	if (str == "nan" || str == "nanf")
+		std::cout << "double: nan" << std::endl;
+	else if (str == "-inf" || str == "-inff")
+		std::cout << "float: -inf" << std::endl;
+	else
+		std::cout << "float: inf" << std::endl;
 }
 
-void	int_handling(std::string str, int type)
+void	ascii_handling(int value)
 {
-	
+	if (value < 32 || value > 127)
+		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
+	std::cout << "int: " << value << std::endl;
+	std::cout << std::fixed << std::setprecision(1) << "float: " << static_cast<float>(value) << "f" << std::endl;
+	std::cout << std::fixed << std::setprecision(1) << "double " << static_cast<double>(value) << std::endl;
 }
 
-void	float_handling(std::string str, int type)
+void	float_handling(float value, std::string str)
 {
-
+	try
+	{
+		std::stoi(str);
+		if (value < 32 || value > 127)
+		std::cout << "char: Non displayable" << std::endl;
+		else
+			std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
+		std::cout << "int: " << static_cast<int>(value) << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "char: Non displayable" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+	}
+	std::cout << std::fixed << std::setprecision(1) << "float: " << value << "f" << std::endl;
+	std::cout << std::fixed << std::setprecision(1) << "double " << static_cast<double>(value) << std::endl;
 }
 
-void	double_handling(std::string str, int type)
+void	double_handling(double value, std::string str)
 {
-	
+try
+	{
+		std::stoi(str);
+		if (value < 32 || value > 127)
+		std::cout << "char: Non displayable" << std::endl;
+		else
+			std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
+		std::cout << "int: " << static_cast<int>(value) << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "char: Non displayable" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+	}
+	std::cout << std::fixed << std::setprecision(1) << "float: " << static_cast<float>(value) << "f" << std::endl;
+	std::cout << std::fixed << std::setprecision(1) << "double " << value << std::endl;	
 }
 
 int	check_type(std::string str)
@@ -89,9 +139,20 @@ int main(int ac, char **av)
 		std::cout << "Please use a correct number format\n";
 		return 1;
 	}
-	char_handling(str, type);
-	int_handling(str, type);
-	float_handling(str, type);
-	double_handling(str, type);
+	switch (type)
+	{
+		case SPECIAL_CASES:
+			special_cases_handling(str);
+			break;
+		case FLOAT_TYPE:
+			float_handling(std::stof(str), str);
+			break;
+		case DOUBLE_TYPE:
+			double_handling(std::stod(str), str);
+			break;
+		case ASCII_TYPE:
+			ascii_handling(std::stoi(str));
+			break;
+	}
 	return 0;
 }
