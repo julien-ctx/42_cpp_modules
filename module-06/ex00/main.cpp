@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 10:38:36 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/16 12:43:54 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/16 15:01:43 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,20 @@ void	float_handling(float value, std::string str)
 		std::cout << "char: Non displayable" << std::endl;
 		std::cout << "int: impossible" << std::endl;
 	}
-	std::cout << std::fixed << std::setprecision(1) << "float: " << value << "f" << std::endl;
-	std::cout << std::fixed << std::setprecision(1) << "double " << static_cast<double>(value) << std::endl;
+	int i; int j;
+	for (i = 0; str[i]; i++)
+		if (str[i] == '.')
+			break;
+	for (i++; str[i]; i++)
+		j++;
+	if (j > 17) j = 17;
+	std::cout << std::fixed << std::setprecision(j - 1) << "float: " << value << "f" << std::endl;
+	std::cout << std::fixed << std::setprecision(j - 1) << "double " << static_cast<double>(value) << std::endl;
 }
 
 void	double_handling(double value, std::string str)
 {
-try
+	try
 	{
 		std::stoi(str);
 		if (value < 32 || value > 127)
@@ -84,8 +91,15 @@ try
 		std::cout << "char: Non displayable" << std::endl;
 		std::cout << "int: impossible" << std::endl;
 	}
-	std::cout << std::fixed << std::setprecision(1) << "float: " << static_cast<float>(value) << "f" << std::endl;
-	std::cout << std::fixed << std::setprecision(1) << "double " << value << std::endl;	
+	int i; int j;
+	for (i = 0; str[i]; i++)
+		if (str[i] == '.')
+			break;
+	for (i++; str[i]; i++)
+		j++;
+	if (j > 17) j = 17;
+	std::cout << std::fixed << std::setprecision(j) << "float: " << static_cast<float>(value) << "f" << std::endl;
+	std::cout << std::fixed << std::setprecision(j) << "double " << value << std::endl;	
 }
 
 int	check_type(std::string str)
