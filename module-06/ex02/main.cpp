@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 18:41:56 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/16 19:19:30 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/16 19:22:54by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	identify(Base &p)
 	try
 	{
 		A &ptr = dynamic_cast<A &>(p);
+		(void)ptr;
 		std::cout << "The real type of this base class is A.\n";
 	}
 	catch (std::bad_cast &e)
@@ -67,6 +68,7 @@ void	identify(Base &p)
 		try
 		{
 			B &ptr = dynamic_cast<B &>(p);
+			(void)ptr;
 			std::cout << "The real type of this base class is B.\n";
 		}
 		catch(const std::bad_cast& e)
@@ -74,6 +76,7 @@ void	identify(Base &p)
 			try
 			{
 				C &ptr = dynamic_cast<C &>(p);
+				(void)ptr;
 				std::cout << "The real type of this base class is C.\n";
 			}
 			catch(const std::bad_cast& e)
@@ -90,4 +93,12 @@ int main()
 	Base *test = generate();
 	identify(test);
 	identify(*test);
+
+	std::cout << std::endl;
+
+	// Error handling
+	int *null_test = NULL;
+	identify(NULL);
+	Base null_base = *reinterpret_cast<Base *>(null_test);
+	identify(null_base);
 }
