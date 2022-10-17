@@ -59,27 +59,27 @@ void	identify(Base &p)
 {
 	try
 	{
-		A &ptr = dynamic_cast<A &>(p);
-		(void)ptr;
+		A &ref = dynamic_cast<A &>(p);
+		(void)ref;
 		std::cout << "The real type of this base class is A.\n";
 	}
 	catch (std::bad_cast &e)
 	{
 		try
 		{
-			B &ptr = dynamic_cast<B &>(p);
-			(void)ptr;
+			B &ref = dynamic_cast<B &>(p);
+			(void)ref;
 			std::cout << "The real type of this base class is B.\n";
 		}
-		catch(const std::bad_cast& e)
+		catch (std::bad_cast &e)
 		{
 			try
 			{
-				C &ptr = dynamic_cast<C &>(p);
-				(void)ptr;
+				C &ref = dynamic_cast<C &>(p);
+				(void)ref;
 				std::cout << "The real type of this base class is C.\n";
 			}
-			catch(const std::bad_cast& e)
+			catch (std::bad_cast &e)
 			{
 				std::cout << "This class doesn't match any subclasses!\n";
 			}
@@ -93,6 +93,7 @@ int main()
 	Base *test = generate();
 	identify(test);
 	identify(*test);
+	delete test;
 
 	std::cout << std::endl;
 
