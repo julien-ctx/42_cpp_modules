@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:20:06 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/17 18:49:57 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/17 19:47:51 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,17 @@ public:
 	Array &operator=(Array const &rhs);
 	T &operator[](unsigned int index);
 	~Array();
-
+	
 	unsigned int const &size() const;
-	void	createNbList() const;
-	void	printArray() const;
-	void	editIndex(unsigned int index, unsigned int value);
+	
+	class BadIndex : public std::exception
+	{
+	public:
+		const char *what() const throw()
+		{
+			return "Index is not correct or array is NULL";
+		}
+	};
 private:
 	T *_array;
 	unsigned int _arraySize;
@@ -83,8 +89,10 @@ Array<T>	&Array<T>::operator=(Array const &rhs)
 template<typename T>
 T &Array<T>::operator[](unsigned index)
 {
+	if (!this->_array)
+		throw BadIndex();
 	if (index > this->_arraySize - 1)
-		throw std::exception();
+		throw BadIndex();
 	else
 		return this->_array[index];
 }
@@ -100,37 +108,4 @@ Array<T>::~Array()
 {
 	if (this->_array)
 		delete [] this->_array;
-}
-
-template<typename T>
-void	Array<T>::createNbList() const
-{
-	if (this->_array)
-	{
-		for (unsigned int i = 0; i < this->_arraySize; i++)
-			this->_array[i] = i;
-	}
-	else
-		std::cout << "Impossible to assign values in an inexisting array!\n";
-}
-
-template<typename T>
-void	Array<T>::printArray() const
-{
-	unsigned int i;
-	if (this->_array)
-	{
-		for (i = 0; i < this->_arraySize - 1; i++)
-			std::cout << this->_array[i] << " ";
-		std::cout << this->_array[i] << std::endl;
-	}
-	else
-		std::cout << "Impossible to print array because it is inexisting!\n";
-}
-
-template<typename T>
-void	Array<T>::editIndex(unsigned int index, unsigned int value)
-{
-	if (index >= 0 || index <= this->_arraySize - 1)
-		this->_array[index] = value;
 }

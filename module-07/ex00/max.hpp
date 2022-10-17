@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 14:46:27 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/17 14:52:46 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/17 19:43:44 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 template <typename T>
 T const &max(T const &a, T const &b)
 {
-	return ((a >= b) ? a : b);
+	return ((a > b) ? a : b);
 }
