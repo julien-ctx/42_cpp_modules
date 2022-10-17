@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:20:06 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/17 19:47:51 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/17 19:54:02 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ Array<T>	&Array<T>::operator=(Array const &rhs)
 	if (this != &rhs)
 	{
 		if (this->_array && rhs._array)
-			for (int i = 0; i < this->_arraySize; i++)
+			for (unsigned int i = 0; i < this->_arraySize; i++)
 				this->_array[i] = rhs._array[i];
 		this->_arraySize = rhs._arraySize;
 	}

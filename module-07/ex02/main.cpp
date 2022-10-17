@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:24:47 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/17 19:42:01 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/17 20:00:17 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ int main()
 	Array<char> test3(10);
 	size = test3.size();
 	for (int i = 0; i < size; i++)
-		test[i] = i + 48;
+		test3[i] = i + 48;
 	for (i = 0; i < size - 1; i++)
-		std::cout << static_cast<char>(test[i]) << " ";
-	std::cout << static_cast<char>(test[i]) << std::endl;
+		std::cout << static_cast<char>(test3[i]) << " ";
+	std::cout << static_cast<char>(test3[i]) << std::endl;
 }
