@@ -6,7 +6,7 @@
 /*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 19:33:21 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/18 23:03:09 by juliencauch      ###   ########.fr       */
+/*   Updated: 2022/10/18 23:10:14 by juliencauch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ public:
 	typedef typename Container::reverse_iterator reverse_iterator;
 	typedef typename Container::const_iterator const_iterator;
 	typedef typename Container::const_reverse_iterator const_reverse_iterator;
+
+	typedef typename Container::value_type value_type;
+	typedef typename Container::size_type size_type;
+	typedef typename Container::reference reference;
+	typedef typename Container::const_reference const_reference;
 
 	iterator begin() {return this->c.begin();};
 	reverse_iterator rbegin() {return this->c.rbegin();};
