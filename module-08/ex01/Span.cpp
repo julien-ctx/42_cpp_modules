@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 14:16:51 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/18 17:53:03 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/18 18:55:03 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,15 @@ void	Span::addNumber(int nb)
 	if (this->_array.size() + 1 > this->_size)
 		throw TooMuchNumbers();
 	this->_array.push_back(nb);
+}
+
+void	Span::addNumberRange(std::vector<int>::iterator b, std::vector<int>::iterator e)
+{
+	unsigned int size = std::distance(b, e);
+	if (this->getMaxSize() + this->_array.size() < size)
+		throw ArrayTooSmall();
+	for (std::vector<int>::iterator it = b; it != e; it++)
+		this->addNumber(*it);
 }
 
 int	Span::getCurrSize() const
@@ -67,10 +76,14 @@ int Span::shortestSpan()
 	std::sort(cpy.begin(), cpy.end());
 	int shortest_span = abs(this->_array[1] - this->_array[0]);
 	for (unsigned int i = 2; i < size; i++)
-	{
 		shortest_span = std::min(shortest_span, abs(this->_array[i] - this->_array[i - 1]));
-	}
 	return shortest_span;
 }
 
 Span::~Span() {}
+
+void	Span::printArray()
+{
+	for (std::vector<int>::iterator it = this->_array.begin(); it != this->_array.end(); it++)
+		std::cout << static_cast<int>(*it) << "\n";
+}

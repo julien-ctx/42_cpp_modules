@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 14:37:35 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/18 17:16:43 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/18 18:51:51 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,14 @@ int main()
 	sp.addNumber(11);
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
+
+	std::cout << "\n\nTest with 10 000 numbers\n";
+	int values[10000];
+	for (int i = 0; i < 10000; i++)
+		values[i] = i;
+	std::vector<int> vect(values, values + sizeof(values) / sizeof(int));
+	Span test2(10000);
+	test2.addNumberRange(vect.begin(), vect.end());
+	test2.printArray();
 	return 0;
 }
