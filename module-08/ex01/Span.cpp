@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 14:16:51 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/18 19:29:57 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/18 22:32:27 by juliencauch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
