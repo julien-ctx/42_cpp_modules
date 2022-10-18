@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 14:16:51 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/18 19:06:55 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/18 19:29:57 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	Span::addNumber(int nb)
 void	Span::addNumberRange(std::vector<int>::iterator b, std::vector<int>::iterator e)
 {
 	unsigned int size = std::distance(b, e);
-	if (this->getMaxSize() + this->_array.size() < size)
+	if (this->getMaxSize() - this->_array.size() < size)
 		throw ArrayTooSmall();
 	for (std::vector<int>::iterator it = b; it != e; it++)
 		this->addNumber(*it);
