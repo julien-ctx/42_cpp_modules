@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 14:16:51 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/18 15:31:57 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/18 17:15:50 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ Span::Span() : _size(0) {}
 
 Span::Span(unsigned int n) : _size(n) {}
 
-Span::Span(Span const &src) : _size(src._size)
-{
-}
+Span::Span(Span const &src) : _size(src._size) {}
 
 Span &Span::operator=(Span const &rhs)
 {
@@ -48,6 +46,27 @@ std::ostream &operator<<(std::ostream &o, Span const &obj)
 	o << "Current array size is " << obj.getCurrSize();
 	std::cout << " and max size is " << obj.getMaxSize() << std::endl;
 	return o;
+}
+
+int Span::longestSpan()
+{
+	return *std::max_element(this->_array.begin(), this->_array.end())
+		-*std::min_element(this->_array.begin(), this->_array.end());
+}
+
+int Span::shortestSpan()
+{
+	std::vector<int> cpy; 
+	unsigned int size = this->_array.size();
+    for (unsigned int i = 0; i < size; i++) 
+        cpy.push_back(this->_array[i]); 
+	std::sort(cpy.begin(), cpy.end());
+	int shortest_span = abs(this->_array[1] - this->_array[0]);
+	for (unsigned int i = 2; i < size; i++)
+	{
+		shortest_span = std::min(shortest_span, abs(this->_array[i] - this->_array[i - 1]));
+	}
+	return shortest_span;
 }
 
 Span::~Span() {}

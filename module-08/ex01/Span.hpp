@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 14:16:47 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/18 15:29:33 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/18 16:38:04 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 class Span
 {
@@ -26,8 +27,8 @@ public:
 	~Span();
 	
 	void	addNumber(int nb);
-	int		shortestSpan() const;
-	int		longestSpan() const;
+	int		shortestSpan();
+	int		longestSpan();
 
 	// Accessors
 	
@@ -40,6 +41,14 @@ public:
 		const char *what() const throw()
 		{
 			return "Warning: integer array is full!";
+		}
+	};
+	class NotEnoughNumbers : public std::exception
+	{
+	public:
+		const char *what() const throw()
+		{
+			return "Warning: there should be at least 2 numbers to find shortest/longest span!";
 		}
 	};
 private: 
