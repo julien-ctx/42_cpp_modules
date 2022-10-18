@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 14:37:35 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/18 18:51:51 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/18 19:15:11 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int main()
 	sp.addNumber(11);
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
+	std::cout << "----------------------\n";
 
 	std::cout << "\n\nTest with 10 000 numbers\n";
 	int values[10000];
@@ -44,6 +45,30 @@ int main()
 	std::vector<int> vect(values, values + sizeof(values) / sizeof(int));
 	Span test2(10000);
 	test2.addNumberRange(vect.begin(), vect.end());
-	test2.printArray();
+	//test2.printArray();
+
+	std::cout << test2.shortestSpan() << std::endl;
+	std::cout << test2.longestSpan() << std::endl;
+
+	std::cout << "\n\nTry to find shortest span on small arrays\n";
+	Span test3(1);
+	test3.addNumber(42);
+	try
+	{
+		test3.shortestSpan();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << "\n\nTry to overflow the array using another big one\n";
+	try
+	{
+		test3.addNumberRange(vect.begin(), vect.end());
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}	
 	return 0;
 }
