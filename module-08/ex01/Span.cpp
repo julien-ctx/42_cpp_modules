@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 14:16:51 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/18 17:15:50 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/18 17:53:03 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,18 @@ std::ostream &operator<<(std::ostream &o, Span const &obj)
 
 int Span::longestSpan()
 {
+	if (this->_array.size() < 2)
+		throw NotEnoughNumbers();
 	return *std::max_element(this->_array.begin(), this->_array.end())
 		-*std::min_element(this->_array.begin(), this->_array.end());
 }
 
 int Span::shortestSpan()
 {
-	std::vector<int> cpy; 
 	unsigned int size = this->_array.size();
+	if (size < 2)
+		throw NotEnoughNumbers();
+	std::vector<int> cpy; 
     for (unsigned int i = 0; i < size; i++) 
         cpy.push_back(this->_array[i]); 
 	std::sort(cpy.begin(), cpy.end());
