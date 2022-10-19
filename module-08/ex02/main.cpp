@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
+/*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 19:33:09 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/18 23:08:09 by juliencauch      ###   ########.fr       */
+/*   Updated: 2022/10/19 10:21:42 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int main()
 		std::cout << *it << std::endl;
 		++it;
 	}
-	std::list<int>f;
 	std::list<int> s(list);
 	}
 	return 0;

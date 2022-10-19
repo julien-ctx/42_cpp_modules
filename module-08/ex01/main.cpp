@@ -6,7 +6,7 @@
 /*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 14:37:35 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/18 19:30:20 by jcauchet         ###   ########.fr       */
+/*   Updated: 2022/10/19 10:18:25 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int main()
 	test2.addNumberRange(vect.begin(), vect.end());
 	//test2.printArray();
 
+	//std::cout << "\n";
 	std::cout << test2.shortestSpan() << std::endl;
 	std::cout << test2.longestSpan() << std::endl;
 

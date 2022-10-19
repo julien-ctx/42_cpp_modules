@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
+/*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 19:33:21 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/18 23:10:14 by juliencauch      ###   ########.fr       */
+/*   Updated: 2022/10/19 10:29:39 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ public:
 	iterator end() {return this->c.end();};
 	reverse_iterator rend() {return this->c.rend();};
 	const_iterator cend() {return this->c.cend();};
-	const_reverse_iterator crend() {return this->c.crend();;;;};
+	const_reverse_iterator crend() {return this->c.crend();};
 };
 
 template <typename T, typename Container>

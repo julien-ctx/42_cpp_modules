@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliencaucheteux <juliencaucheteux@stud    +#+  +:+       +#+        */
+/*   By: jcauchet <jcauchet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 14:16:51 by jcauchet          #+#    #+#             */
-/*   Updated: 2022/10/18 22:32:27 by juliencauch      ###   ########.fr       */
+/*   Updated: 2022/10/19 10:12:41 by jcauchet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,21 @@ Span::Span() : _size(0) {}
 
 Span::Span(unsigned int n) : _size(n) {}
 
-Span::Span(Span const &src) : _size(src._size) {}
+Span::Span(Span const &src) : _size(src._size)
+{
+	if (src.getCurrSize())	
+	{
+		unsigned int size = src.getCurrSize();
+		for (unsigned int i = 0; i < size; i++)	
+			this->_array.push_back(src._array[i]);	
+	}
+}
 
 Span &Span::operator=(Span const &rhs)
 {
-	(void)rhs;
+	if (this != &rhs)
+		if (this->_size == rhs._size)
+			this->_array = rhs._array;
 	return *this;
 }
 
